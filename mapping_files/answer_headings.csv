@@ -1,0 +1,19 @@
+﻿OriginalTitle,ModifiedTitle
+What is your full name?,name
+Which of the following stacks of blocks will not ask for three numbers and then make the Cat say the average of those three numbers?,sequencing_2
+"Here are the steps for boiling for boiling water. Identify the correct order of steps for this algorithm.1. Your water is now boiled2. Fill pan with water3. When water is bubbling, turn stove top off4. Put pan on stove top5. Pick up pan6. Turn stove top on",sequencing_3
+I can teach students to write computer programs that execute a step-by-step sequence of commands.,TSECT_1
+I can teach students to write computer programs that use loops to repeat commands.,TSECT_2
+I can teach students to write computer programs that respond to events like pressing a key on the keyboard.,TSECT_3
+I can teach students to write computer programs that do more than one thing at the same time.,TSECT_4
+I can teach students to write computer programs that only execute some commands when a specific condition is met.,TSECT_5
+I can teach students to write computer programs that perform arithmetic operations like addition and subtraction.,TSECT_6
+"I can teach students to write computer programs that can store, update, and retrieve values.",TSECT_7
+I can teach students to write computer programs that can ask the user a question.,TSECT_8
+"In my classes, I can promote a positive attitude towards Coding.",TSECT_9
+"In my classes, I can guide students in using Coding as a tool we explore other topics.",TSECT_10
+"In my classes, I can use Coding as an instructional tool.",TSECT_11
+"In my classes, I can adapt lesson plans incorporating Coding to meet my students' learning level.",TSECT_12
+"In my classes, I can create original lesson plans using Coding as an instructional tool.",TSECT_13
+"In my classes, I can identify how Coding concepts relate to the Digital Technologies component of the NSW K-6 Science and Technology syllabus.",TSECT_14
+What professional learning opportunities have you undertaken that have focused on Coding and Computational Thinking? Please indicate the number of hours for each of the following types of professional learning opportunities you have participated in.,TSECT_15

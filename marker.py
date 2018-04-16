@@ -1,22 +1,13 @@
 import csv
-import re
 
-def modify_responses_heading(heading):
-
-	response_heading = ''
-	question_match = re.match(r'https:\/\/cs4s.github.io\/cc_quiz\/(\w+)\/q(\d+)\/question(\w*).png', heading)
-	if question_match:
-		return '{}_{}'.format(question_match.group(1), question_match.group(2))
-
-	return response_heading
+from transform_responses import ResponsesTransformer
 
 def get_quiz_responses():
 
 	responses_filename = 'results/test.csv'
-
 	quiz_rows = []
 
-	with open(responses_filename) as responses_file:
+	with open(responses_filename, encoding = 'utf-8-sig') as responses_file:
 		responses_reader = csv.reader(responses_file)
 		for (index, row) in enumerate(responses_reader):
 			# We don't want the second row of the responses (because the headings are not useful in this case)
@@ -25,23 +16,19 @@ def get_quiz_responses():
 
 	return quiz_rows
 
-# Counter to keep track of how many quiz question headers have been modified
-question_count = 0
 
-modified_responses = []
-quiz_responses = get_quiz_responses()
+def main():
 
-for (index, row) in enumerate(quiz_responses):
-	modified_row = []
-	for cell in row:
-		modified_cell = ''
-		# The logic for modifying the responses header row is different to the other rows
-		if index == 0:
-			modified_cell = modify_responses_heading(cell)
+	responses_transformer = ResponsesTransformer(get_quiz_responses(), 'mapping_files/')
+	modified_responses = responses_transformer.get_transformed_responses()
 
-		modified_row.append(modified_cell)
+	print('The following answer headers are a result of transformation:')
+	[print(h) for h in responses_transformer.transformed_headers]
+	print()
 
-	modified_responses.append(modified_row)
+	for column in modified_responses[0]:
+		print(column)
 
-# Write out the modified responses to a csv
-print(modified_responses)
+
+if __name__ == "__main__":
+	main()
