@@ -103,3 +103,4 @@ ENV/
 # Data files to ignore
 results/
 output/
+mid/

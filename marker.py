@@ -10,9 +10,17 @@ def get_quiz_responses():
 	with open(responses_filename, encoding = 'utf-8-sig') as responses_file:
 		responses_reader = csv.reader(responses_file)
 		for (index, row) in enumerate(responses_reader):
+
 			# We don't want the second row of the responses (because the headings are not useful in this case)
 			if index != 1:
-				quiz_rows.append(row)
+				row_to_add = []
+				for column in row:
+					# Get rid of the quotation mark characters in the SurveyMonkey response files
+					cleaned_column = column.replace('“', '"')
+					cleaned_column = cleaned_column.replace('”', '"')
+					row_to_add.append(cleaned_column)
+
+				quiz_rows.append(row_to_add)
 
 	return quiz_rows
 
@@ -20,15 +28,7 @@ def get_quiz_responses():
 def main():
 
 	responses_transformer = ResponsesTransformer(get_quiz_responses(), 'mapping_files/')
-	modified_responses = responses_transformer.get_transformed_responses()
-
-	print('The following answer headers are a result of transformation:')
-	[print(h) for h in responses_transformer.transformed_headers]
-	print()
-
-	for column in modified_responses[0]:
-		print(column)
-
+	modified_responses = responses_transformer.perform_transformation()
 
 if __name__ == "__main__":
 	main()

@@ -1,31 +1,73 @@
-﻿Category,QuestionNumber,CorrectAnswer
-sequencing,1,D
-sequencing,2,C
-sequencing,3,B
-sequencing,4,A
-sequencing,5,A
-sequencing,6,B
-sequencing,7,A
-sequencing,8,D
-sequencing,9,C
-sequencing,10,D
-repetition,1,5
-repetition,2,16
-repetition,3,B
-repetition,4,B
-repetition,5,C
-repetition,6,B
-repetition,7,A
-repetition,8,A
-repetition,9,B
-repetition,10,B
-conditionals,1,C
-conditionals,2,B
-conditionals,3,C
-conditionals,4,C
-conditionals,5,A
-conditionals,6,C
-conditionals,7,D
-conditionals,8,C
-conditionals,9,C
-conditionals,10,C
+﻿Category,QuestionNumber,OriginalAnswer,ModifiedAnswer
+sequencing,3,"6,5,2,3,6,1",A
+sequencing,3,"5,2,6,4,3,1",B
+sequencing,3,"6,2,5,4,3,1",C
+sequencing,3,"5,2,4,3,6,1",D
+sequencing,9,"The Cat will move left and then left again. Next, it will move down and then down again. Finally, it will move up and then up again.",A
+sequencing,9,"The Cat will move right and then right again. Next, it will move down and then down again. Finally, it will move up and then up again.",B
+sequencing,9,"The Cat will move left and then left again. Next, it will move down and then right. Finally, it will move up and then up again.",C
+sequencing,9,"The Cat will move right and then right again. Next, it will move up and then left. Finally, it will move down and then down again.",D
+sequencing,10,"The Cat will move left and then move up. Next, the Cat will move right and then move up. Finally, the Cat will move down and then move right.",A
+sequencing,10,"The Cat will move right and then move down. Next, the Cat will move right and then move up. Finally, the Cat will move down and then move right.",B
+sequencing,10,"The Cat will move left and then move up. Next, the Cat will move left and then move down. Finally, the Cat will move down and then move right.",C
+sequencing,10,"The Cat will move right and then move down. Next, the Cat will move right and then move up. Finally, the Cat will move up and then move left.",D
+repetition,3,12,A
+repetition,3,24,B
+repetition,3,120,C
+repetition,3,60,D
+repetition,4,80,A
+repetition,4,8,B
+repetition,4,6,C
+repetition,4,60,D
+repetition,5,4,A
+repetition,5,240,B
+repetition,5,12,C
+repetition,5,3,D
+repetition,6,30,A
+repetition,6,60,B
+repetition,6,3,C
+repetition,6,6,D
+repetition,7,9,A
+repetition,7,12,B
+repetition,7,6,C
+repetition,7,60,D
+repetition,10,10,A
+repetition,10,30,B
+repetition,10,60,C
+repetition,10,180,D
+conditionals,1,"You will hear only a ""meow"" noise play",A
+conditionals,1,"You will hear only a ""meow"" noise play and then a drum noise will play",B
+conditionals,1,You will hear only a drum noise play,C
+conditionals,1,You will not hear any noises after the blocks are clicked,D
+conditionals,2,"The Cat will say ""Hello!"" for 2 seconds",A
+conditionals,2,"The Cat will say ""Hello!"" for 2 seconds and then say ""Goodbye!"" for 2 seconds",B
+conditionals,2,"The Cat will say ""Goodbye!"" for 2 seconds",C
+conditionals,2,The Cat will not say anything,D
+conditionals,3,"The Cat will only say: ""Snake Eyes!"" for 2 seconds",A
+conditionals,3,"The Cat will say: ""Snake Eyes!"" for 2 seconds and then say: ""Would you like to play again?"" for 2 seconds",B
+conditionals,3,A note will be played for 1 beat,C
+conditionals,3,Nothing will happen,D
+conditionals,4,20,A
+conditionals,4,19,B
+conditionals,4,21,C
+conditionals,4,0,D
+conditionals,5,"crystal, flaming sword, ring of power, potion of invulnerability",A
+conditionals,5,"crystal, magic wand, flaming sword",B
+conditionals,5,"crystal, magic wand, key",C
+conditionals,5,"key, ring of power",D
+conditionals,6,"the Cat will say: ""Ouch!"" for 2 seconds",A
+conditionals,6,"the Cat will say: ""Pass the ball"" for 2 seconds",B
+conditionals,6,"the Cat will say: ""Hello!"" for 2 seconds and then say: ""Ouch!"" for 2 seconds",C
+conditionals,6,"the Cat will say: ""Hello!"" for 2 seconds and then say: ""Pass the ball!"" for 2 seconds",D
+conditionals,7,"the Bird will say: ""Ouch!"" for 2 seconds",A
+conditionals,7,"the Bird will say: ""Lucky, the Lightning Bolt just missed me!"" for 2 seconds",B
+conditionals,7,"the Bird will say: ""Ouch!"" for 2 seconds and then say: ""I need to get out of this storm!"" for 2 seconds",C
+conditionals,7,"the Bird will say: ""Lucky, the Lightning Bolt just missed me!"" for 2 seconds and then say: ""I need to get out of this storm!"" for 2 seconds",D
+conditionals,8,3,A
+conditionals,8,2,B
+conditionals,8,1,C
+conditionals,8,0,D
+conditionals,10,5,A
+conditionals,10,-6,B
+conditionals,10,12,C
+conditionals,10,0,D
