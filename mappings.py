@@ -9,6 +9,7 @@ class HeaderColumnMapping:
 		display = 'Original Title: {}\n'.format(self.original_title)
 		display += 'Modified Title: {}\n'.format(self.modified_title)
 		return display
+
 	
 class AnswerLetterMapping:
 	""" A class for mapping the answers to the appropriate letter. """
@@ -24,6 +25,7 @@ class AnswerLetterMapping:
 		display += 'Survey Answer: {}\n'.format(self.original_answer)
 		display += 'Modified Answer: {}\n'.format(self.modified_answer)
 		return display
+
 
 class AnswerMarkingMapping:
 	""" A class for mapping the answer for each of the quiz responses. """
@@ -50,3 +52,5 @@ class NumberAnswerMapping:
 		display = 'Category: {}\n'.format(self.category)
 		display += 'Question Number: {}\n'.format(self.question_number)
 		return display
+
+		

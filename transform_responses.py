@@ -25,22 +25,6 @@ class ResponsesTransformer:
 		self.load_answer_mappings()
 		self.load_number_answers()
 
-		self.load_included_columns()
-
-
-	def load_included_columns(self):
-		"""  Load the column mappings for the quiz columns that we are interested in. """
-		self.included_columns = []
-		self.included_columns.append('name')
-
-		categories = ['sequencing', 'repetition', 'conditionals']
-		for category in categories:
-			for i in range(1, 11):
-				self.included_columns.append('{}_{}'.format(category, i))
-
-		for i in range(1, 15):
-			self.included_columns.append('TSECT_{}'.format(i))
-
 
 	def load_answer_heading_mappings(self):
 		""" Load the heading mappings for the questions to standardised heading name. """
@@ -185,7 +169,7 @@ class ResponsesTransformer:
 		""" Function that filters the responses to only the columns needed for the quiz and TSECT scale  """
 		filtered_responses = []
 		header_row = self.included_columns
-		for response in responses[0:]:
+		for response in responses:
 			modified_response = []
 			for included_column in self.included_columns:
 				modified_response.append(response[included_column])
@@ -193,8 +177,10 @@ class ResponsesTransformer:
 			
 		return [ header_row ] + filtered_responses
 
-	def perform_transformation(self):
+	def perform_transformation(self, included_columns):
 		""" A function that performs all of the steps necessary to transform the responses to a format for automarking.  """
+		self.included_columns = included_columns
+
 		transformed_headers_file_path = 'mid/transformed_headers.csv'
 
 		# Modify the headers and write to a csv
