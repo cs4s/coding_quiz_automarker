@@ -1,6 +1,6 @@
 
 class HeaderColumnMapping:
-
+	""" A class for mapping headers on responses to standardised form. """
 	def __init__(self):
 		self.original_title = ''
 		self.modified_title = ''
@@ -11,7 +11,7 @@ class HeaderColumnMapping:
 		return display
 	
 class AnswerLetterMapping:
-
+	""" A class for mapping the answers to the appropriate letter. """
 	def __init__(self):
 		self.category = ''
 		self.question_number = 0
@@ -26,14 +26,21 @@ class AnswerLetterMapping:
 		return display
 
 class AnswerMarkingMapping:
-
+	""" A class for mapping the answer for each of the quiz responses. """
 	def __init__(self):
 		self.category = ''
 		self.question_number = 0
 		self.correct_answer = ''
 
+	def __repr__():
+		display += 'Category:" {}'.format(self.category)
+		display += 'Question Number: {}'.format(self.question_number)
+		display += 'Correct Answer: {}'.format(self.correct_answer)
+		return display
+
+
 class NumberAnswerMapping:
-	""" """
+	""" A class for mapping a question to being answered with a number (instead of a multiple choice letter) """
 
 	def __init__(self):
 		self.category = ''

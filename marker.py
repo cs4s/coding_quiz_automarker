@@ -30,5 +30,7 @@ def main():
 	responses_transformer = ResponsesTransformer(get_quiz_responses(), 'mapping_files/')
 	modified_responses = responses_transformer.perform_transformation()
 
+	
+
 if __name__ == "__main__":
 	main()
