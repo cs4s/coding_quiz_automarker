@@ -2,6 +2,7 @@ import csv
 
 from transform_responses import ResponsesTransformer
 from automarking import AutoMarker
+from export import ExcelExporter
 
 def get_included_columns():
 	"""  Create and return a list of the quiz columns that we are interested in. """
@@ -49,7 +50,7 @@ def main():
 	responses_transformer = ResponsesTransformer(get_quiz_responses(), 'mapping_files/')
 	responses_transformer.perform_transformation(columns_to_include)
 
-	# Load the transformed responses, for passing to the 
+	# Load the transformed responses, for passing to the automarker
 	modified_responses = []
 	modified_responses_file_path = 'mid/modified_answers.csv'
 
@@ -58,19 +59,15 @@ def main():
 		for row in responses_reader:
 			modified_responses.append(row)
 
+	# Perform the auto marking and get a list of participants, with marked responses
 	quiz_response_prefixes = ['sequencing', 'repetition', 'conditionals']
 	auto_marker = AutoMarker(modified_responses, 'mapping_files/')
 	participants = auto_marker.get_participants_from_responses(columns_to_include, quiz_response_prefixes)
-	print(participants)
 
-	for participant in participants:
-		print('Name: {}'.format(participant.name))
-		print('Sequencing Total: {}'.format(participant.get_correct_count_for_category('sequencing')))
-		print('Repetition Total: {}'.format(participant.get_correct_count_for_category('repetition')))
-		print('Conditionals Total: {}'.format(participant.get_correct_count_for_category('conditionals')))
-		print('TSECT Average: {}'.format(participant.get_average_for_category_from_sum('TSECT')))
-
-	# participants = 
+	# Perform the export to the excel spreadsheet, which summarises the responses from the participants
+	scale_prefixes = [ 'TSECT' ]
+	excel_exporter = ExcelExporter(participants, quiz_response_prefixes, scale_prefixes)
+	excel_exporter.perform_export(columns_to_include)
 
 if __name__ == "__main__":
 	main()

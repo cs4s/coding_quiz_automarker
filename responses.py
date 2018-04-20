@@ -1,3 +1,4 @@
+
 class ParticipantResponse:
 	""" A class that represents a response in the survey (including quiz questions and scale items)  """
 
