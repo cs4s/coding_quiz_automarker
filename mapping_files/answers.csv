@@ -31,6 +31,10 @@ repetition,7,9,A
 repetition,7,12,B
 repetition,7,6,C
 repetition,7,60,D
+repetition,9,16,A
+repetition,9,80,B
+repetition,9,160,C
+repetition,9,8,D
 repetition,10,10,A
 repetition,10,30,B
 repetition,10,60,C
@@ -63,10 +67,10 @@ conditionals,7,"the Bird will say: ""Ouch!"" for 2 seconds",A
 conditionals,7,"the Bird will say: ""Lucky, the Lightning Bolt just missed me!"" for 2 seconds",B
 conditionals,7,"the Bird will say: ""Ouch!"" for 2 seconds and then say: ""I need to get out of this storm!"" for 2 seconds",C
 conditionals,7,"the Bird will say: ""Lucky, the Lightning Bolt just missed me!"" for 2 seconds and then say: ""I need to get out of this storm!"" for 2 seconds",D
-conditionals,8,3,A
-conditionals,8,2,B
-conditionals,8,1,C
-conditionals,8,0,D
+conditionals,8,"the Cat will say: ""I like that number!"" for 2 seconds and then say: ""That's an excellent number!""",A
+conditionals,8,"the Cat will say: ""That's a great number!""",B
+conditionals,8,"the Cat will say: ""I like that number!"" for 2 seconds and then say: ""That's a great number!"" for 2 seconds",C
+conditionals,8,"the Cat will say ""That's an excellent number!""",D
 conditionals,10,5,A
 conditionals,10,-6,B
 conditionals,10,12,C

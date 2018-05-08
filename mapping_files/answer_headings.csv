@@ -1,7 +1,7 @@
 ﻿OriginalTitle,ModifiedTitle
 What is your full name?,name
 Which of the following stacks of blocks will not ask for three numbers and then make the Cat say the average of those three numbers?,sequencing_2
-"Here are the steps for boiling for boiling water. Identify the correct order of steps for this algorithm.1. Your water is now boiled2. Fill pan with water3. When water is bubbling, turn stove top off4. Put pan on stove top5. Pick up pan6. Turn stove top on",sequencing_3
+"Here are the steps for boiling water in random order. Identify the correct order of steps to boil water.1. Your water is now boiled2. Fill pan with water3. When water is bubbling, turn stove top off4. Put pan on stove top5. Pick up pan6. Turn stove top on",sequencing_3
 I can teach students to write computer programs that execute a step-by-step sequence of commands.,TSECT_1
 I can teach students to write computer programs that use loops to repeat commands.,TSECT_2
 I can teach students to write computer programs that respond to events like pressing a key on the keyboard.,TSECT_3
