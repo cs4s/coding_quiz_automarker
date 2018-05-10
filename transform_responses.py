@@ -106,6 +106,11 @@ class ResponsesTransformer:
 		""" Function to modify an answer in the responses, mapping it to a letter, based off the column title """
 		if column_title == 'name':
 			return answer
+		elif column_title == 'stream':
+			if answer == 'Coding & STEAM':
+				return 'STEAM'
+			else:
+				return 'MATHS'
 		elif answer == 'I don\'t know':
 			return 'E'
 		else:

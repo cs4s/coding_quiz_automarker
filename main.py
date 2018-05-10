@@ -8,6 +8,7 @@ def get_included_columns():
 	"""  Create and return a list of the quiz columns that we are interested in. """
 	included_columns = []
 	included_columns.append('name')
+	included_columns.append('stream')
 
 	categories = ['sequencing', 'repetition', 'conditionals']
 	for category in categories:

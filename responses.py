@@ -10,7 +10,7 @@ class ParticipantResponse:
 		self.is_quiz_question = False
 		self.is_correct = False
 
-	def __repr__():
+	def __repr__(self):
 		display = 'Category: {}\n'.format(self.category)
 		display += 'Question Number: {}\n'.format(self.question_number)
 		display += 'Response Answer: {}\n'.format(self.is_quiz_question)
@@ -29,11 +29,12 @@ class Participant:
 
 	def __init__(self):
 		self.name = ''
+		self.stream = ''
 		self.participant_responses = []
 
 
 	def __repr__(self):
-		display = '\n###\nName: {}\n### Responses ###\n'.format(self.name)
+		display = '\n###\nName: {}\nStream: {}\n### Responses ###\n'.format(self.name, self.stream)
 		for response in self.participant_responses:
 			display += '{} Q{}: answered {}'.format(response.category, response.question_number, response.response_answer)
 			if response.is_quiz_question:

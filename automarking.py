@@ -60,7 +60,7 @@ class AutoMarker:
 			participant_responses = []
 			for included_column in included_columns:
 
-				if included_column != 'name':
+				if included_column != 'name' and included_column != 'stream':
 
 					participant_response = ParticipantResponse()
 					column_title_split = included_column.split('_')
@@ -80,6 +80,7 @@ class AutoMarker:
 					participant_responses.append(participant_response)
 
 			participant.name = response['name']
+			participant.stream = response['stream']
 			participant.participant_responses = participant_responses
 			participants.append(participant)
 

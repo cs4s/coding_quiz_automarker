@@ -43,6 +43,11 @@ class ExcelExporter:
 				if included_column == 'name':
 					_ = all_responses_ws.cell(column = column_index, row = row_index, value = participant.name)
 					column_index += 1
+				
+				# For the stream column, just show the stream name
+				elif included_column == 'stream':
+					_ = all_responses_ws.cell(column = column_index, row = row_index, value = participant.stream)
+					column_index += 1
 
 				# For the quiz question columns, we have to find the response from the participant
 				else:
@@ -84,6 +89,7 @@ class ExcelExporter:
 
 		summary_column_names = []
 		summary_column_names.append('Name')
+		summary_column_names.append('Stream')
 
 		for quiz_prefix in self.quiz_prefixes:
 			summary_column_names.append('{} Total'.format(quiz_prefix.title()))
@@ -105,6 +111,9 @@ class ExcelExporter:
 			_ = summary_ws.cell(column = column_index, row = row_index, value = participant.name)
 			column_index += 1
 
+			_ = summary_ws.cell(column = column_index, row = row_index, value = participant.stream)
+			column_index += 1
+
 			# Writes out the total correct for each of the categories
 			for quiz_prefix in self.quiz_prefixes:
 				category_total = participant.get_correct_count_for_category(quiz_prefix)
@@ -120,7 +129,8 @@ class ExcelExporter:
 	def create_participant_worksheet(self, participant):
 		""" Creates a worksheet that lists all of the given participants' responses """
 
-		participant_ws = self.output_workbook.create_sheet(title = participant.name)
+		participant_title = "{} {}".format(participant.name, participant.stream)
+		participant_ws = self.output_workbook.create_sheet(title = participant_title)
 
 		heading_columns = ['Category', 'Question Number', 'Answer', 'Correct?']
 		for (index, column) in enumerate(heading_columns):
