@@ -34,7 +34,7 @@ class AnswerMarkingMapping:
 		self.question_number = 0
 		self.correct_answer = ''
 
-	def __repr__():
+	def __repr__(self):
 		display += 'Category:" {}'.format(self.category)
 		display += 'Question Number: {}'.format(self.question_number)
 		display += 'Correct Answer: {}'.format(self.correct_answer)

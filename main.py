@@ -13,7 +13,12 @@ def get_included_columns():
 	categories = ['sequencing', 'repetition', 'conditionals']
 	for category in categories:
 		for i in range(1, 11):
-			included_columns.append('{}_{}'.format(category, i))
+			if category == 'conditionals' and i == 8:
+				# Have to exclude conditionals question 8 .. as the question is wrong..
+				print('Ignore Conditionals Q8.')
+			else:
+				included_columns.append('{}_{}'.format(category, i))
+
 
 	for i in range(1, 15):
 		included_columns.append('TSECT_{}'.format(i))
@@ -37,6 +42,7 @@ def get_quiz_responses():
 					# Get rid of the quotation mark characters in the SurveyMonkey response files
 					cleaned_column = column.replace('“', '"')
 					cleaned_column = cleaned_column.replace('”', '"')
+					cleaned_column = cleaned_column.replace('’', '\'')
 					row_to_add.append(cleaned_column)
 
 				quiz_rows.append(row_to_add)

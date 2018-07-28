@@ -1,8 +1,6 @@
 ﻿OriginalTitle,ModifiedTitle
 What is your full name (first name and last name)?,name
 Which of the Coding in Stage 3 streams are you participating in?,stream
-Which of the following stacks of blocks will not ask for three numbers and then make the Cat say the average of those three numbers?,sequencing_2
-"Here are the steps for boiling water in random order. Identify the correct order of steps to boil water.1. Your water is now boiled2. Fill pan with water3. When water is bubbling, turn stove top off4. Put pan on stove top5. Pick up pan6. Turn stove top on",sequencing_3
 I can teach students to write computer programs that execute a step-by-step sequence of commands.,TSECT_1
 I can teach students to write computer programs that use loops to repeat commands.,TSECT_2
 I can teach students to write computer programs that respond to events like pressing a key on the keyboard.,TSECT_3
@@ -12,7 +10,7 @@ I can teach students to write computer programs that perform arithmetic operatio
 "I can teach students to write computer programs that can store, update, and retrieve values.",TSECT_7
 I can teach students to write computer programs that can ask the user a question.,TSECT_8
 "In my classes, I can promote a positive attitude towards Coding.",TSECT_9
-"In my classes, I can guide students in using Coding as a tool we explore other topics.",TSECT_10
+"In my classes, I can guide students in using Coding as a tool as we explore other topics.",TSECT_10
 "In my classes, I can use Coding as an instructional tool.",TSECT_11
 "In my classes, I can adapt lesson plans incorporating Coding to meet my students' learning level.",TSECT_12
 "In my classes, I can create original lesson plans using Coding as an instructional tool.",TSECT_13

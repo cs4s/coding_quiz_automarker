@@ -40,7 +40,7 @@ repetition,10,30,B
 repetition,10,60,C
 repetition,10,180,D
 conditionals,1,"You will hear only a ""meow"" noise play",A
-conditionals,1,"You will hear only a ""meow"" noise play and then a drum noise will play",B
+conditionals,1,"You will hear a ""meow"" noise play and then a drum noise will play",B
 conditionals,1,You will hear only a drum noise play,C
 conditionals,1,You will not hear any noises after the blocks are clicked,D
 conditionals,2,"The Cat will say ""Hello!"" for 2 seconds",A
@@ -60,7 +60,7 @@ conditionals,5,"crystal, magic wand, flaming sword",B
 conditionals,5,"crystal, magic wand, key",C
 conditionals,5,"key, ring of power",D
 conditionals,6,"the Cat will say: ""Ouch!"" for 2 seconds",A
-conditionals,6,"the Cat will say: ""Pass the ball"" for 2 seconds",B
+conditionals,6,"the Cat will say: ""Pass the ball!"" for 2 seconds",B
 conditionals,6,"the Cat will say: ""Hello!"" for 2 seconds and then say: ""Ouch!"" for 2 seconds",C
 conditionals,6,"the Cat will say: ""Hello!"" for 2 seconds and then say: ""Pass the ball!"" for 2 seconds",D
 conditionals,7,"the Bird will say: ""Ouch!"" for 2 seconds",A
