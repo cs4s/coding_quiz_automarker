@@ -19,9 +19,17 @@ def get_included_columns():
 			else:
 				included_columns.append('{}_{}'.format(category, i))
 
-
 	for i in range(1, 15):
 		included_columns.append('TSECT_{}'.format(i))
+
+	plan_to_teach_prefix = 'PlanToTeachIn'
+	included_columns.append('{}Technology'.format(plan_to_teach_prefix))
+	included_columns.append('{}Extracurricular'.format(plan_to_teach_prefix))
+
+	plan_to_integrate_prefix = 'PlanToIntegrateIn'
+	subjects = ['English', 'Maths', 'Science', 'HSIE', 'Languages', 'CreativeArts', 'PDHPE']
+	for subject in subjects:
+		included_columns.append('{}{}'.format(plan_to_integrate_prefix, subject))
 
 	return included_columns
 
@@ -51,6 +59,9 @@ def get_quiz_responses():
 
 
 def main():
+
+	print('Note that you should make sure the Integration headings are on first row of the csv, before performing export.')
+	print('Also, please remove the comma from the PDHPE heading.')
 
 	# Transform the responses to a format that the auto-marker can read and mark
 	columns_to_include = get_included_columns()

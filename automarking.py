@@ -14,9 +14,17 @@ class AutoMarker:
 		self.answer_marking_mappings = []
 		self.included_columns = []
 		self.quiz_prefixes = []
+		self.integration_columns = []
 
 		self.load_answer_marking_mappings()
 
+	def load_integration_included_columns(self):
+		""" Load the columns in the responses that are related to integration of Coding """
+		integration_columns = []
+		for column in self.included_columns:
+			if ('PlanToTeachIn' in column or 'PlanToIntegrateIn' in column):
+				integration_columns.append(column)
+		self.integration_columns = integration_columns
 
 	def load_answer_marking_mappings(self):
 		""" Load the correct answers to the quiz into a list of mapping objects. """
@@ -53,6 +61,7 @@ class AutoMarker:
 	def get_participants_from_responses(self, included_columns, quiz_prefixes):
 		""" A function that goes through all of the responses, creates Participant objects and marks their responses. """
 		self.included_columns = included_columns
+		self.load_integration_included_columns()
 		participants = []
 
 		for response in self.responses:
@@ -60,7 +69,15 @@ class AutoMarker:
 			participant_responses = []
 			for included_column in included_columns:
 
-				if included_column != 'name' and included_column != 'stream':
+				if included_column in self.integration_columns:
+
+					participant_response = ParticipantResponse()
+					participant_response.category = 'Integration'
+					participant_response.question_number = included_column
+					participant_response.response_answer = response[included_column]
+					participant_responses.append(participant_response)
+
+				elif included_column != 'name' and included_column != 'stream':
 
 					participant_response = ParticipantResponse()
 					column_title_split = included_column.split('_')

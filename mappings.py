@@ -53,4 +53,14 @@ class NumberAnswerMapping:
 		display += 'Question Number: {}\n'.format(self.question_number)
 		return display
 
-		
+class IntegrationMapping:
+	""" A class for mapping a question about integrating coding into KLAs to a different column name """
+
+	def __init__(self):
+		self.original_title = ''
+		self.modified_title = ''
+
+	def __repr__(self):
+		display = 'Original Title: {}\n'.format(self.original_title)
+		display += 'Modified Title: {}\n'.format(self.modified_title)
+		return display

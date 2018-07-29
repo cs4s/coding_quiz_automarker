@@ -49,6 +49,19 @@ class ExcelExporter:
 					_ = all_responses_ws.cell(column = column_index, row = row_index, value = participant.stream)
 					column_index += 1
 
+				elif 'PlanToTeachIn' in included_column or 'PlanToIntegrateIn' in included_column:
+					integrate_response = [r for r in responses if r.question_number == included_column]
+					if (len(integrate_response) == 1):
+						integrate_answer = integrate_response[0].response_answer
+						_ = all_responses_ws.cell(column = column_index, row = row_index, value = integrate_answer)
+						column_index += 1
+
+					elif (len(integrate_response) == 0):
+						print('No response found for the Integration Q: {} for participant {}'.format(included_column, participant.name))
+
+					else:
+						print('More than one response found for the Integration Q: {} for participant {}'.format(included_column, participant.name))
+
 				# For the quiz question columns, we have to find the response from the participant
 				else:
 
@@ -70,7 +83,7 @@ class ExcelExporter:
 							response_cell.fill = cell_fill
 							column_index += 1
 						else:
-							_ = all_responses_ws.cell(column = column_index, row = row_index, value = response.response_answer)
+							_ = all_responses_ws.cell(column = column_index, row = row_index, value = int(response.response_answer))
 							column_index += 1
 
 					elif len(response_values) == 0:
@@ -143,11 +156,22 @@ class ExcelExporter:
 
 			_ = participant_ws.cell(column = column_index, row = row_index, value = response.category)
 			column_index += 1
-			_ = participant_ws.cell(column = column_index, row = row_index, value = int(response.question_number))
+
+			# Question number (different for the questions about integration (String, instead of a number)
+			if response.category == 'Integration':
+				_ = participant_ws.cell(column = column_index, row = row_index, value = response.question_number)
+			else:
+				_ = participant_ws.cell(column = column_index, row = row_index, value = int(response.question_number))
 			column_index += 1
 
-			# The response to the questions that are quizzes are mostly letters, the scale questions are numbers
-			answer_value = response.response_answer if response.is_quiz_question else int(response.response_answer)
+			# The response to the questions that are quizzes are mostly letters, the scale questions are numbers, integration are booleans
+			
+			answer_value = ''
+			if response.is_quiz_question or response.category == 'Integration':
+				answer_value = response.response_answer
+			else:
+				answer_value = int(response.response_answer)
+			
 			_ = participant_ws.cell(column = column_index, row = row_index, value = answer_value)
 			column_index += 1
 

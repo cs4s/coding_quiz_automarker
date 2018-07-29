@@ -2,7 +2,7 @@
 import re
 import csv
 
-from mappings import HeaderColumnMapping, AnswerLetterMapping, NumberAnswerMapping
+from mappings import HeaderColumnMapping, AnswerLetterMapping, NumberAnswerMapping, IntegrationMapping
 
 """ A class that takes the SurveyMonkey quiz responses and modifies these for automatic marking. """
 class ResponsesTransformer:
@@ -16,6 +16,7 @@ class ResponsesTransformer:
 		self.answer_heading_mappings = []
 		self.answer_mappings = []
 		self.number_answer_mappings = []
+		self.integration_mappings = []
 		self.included_columns = []
 
 		self.question_match_regex = re.compile(r'https:\/\/cs4s.github.io\/cc_quiz\/(\w+)\/q(\d+)\/question(\w*).png')
@@ -24,6 +25,7 @@ class ResponsesTransformer:
 		self.load_answer_heading_mappings()
 		self.load_answer_mappings()
 		self.load_number_answers()
+		self.load_integration_mappings()
 
 
 	def load_answer_heading_mappings(self):
@@ -69,6 +71,18 @@ class ResponsesTransformer:
 				number_mapping.question_number = row['QuestionNumber']
 				self.number_answer_mappings.append(number_mapping)
 
+	def load_integration_mappings(self):
+		""" Load the mappings to change the integration column name for a column used in analysis """
+		self.integration_mappings = []
+		integration_mappings_filename = '{}/integration.csv'.format(self.mappings_directory)
+
+		with open(integration_mappings_filename, 'r', encoding='utf-8-sig') as mappings_file:
+			mappings_reader = csv.DictReader(mappings_file)
+			for row in mappings_reader:
+				integration_mapping = IntegrationMapping()
+				integration_mapping.original_title = row['OriginalTitle']
+				integration_mapping.modified_title = row ['ModifiedTitle']
+				self.integration_mappings.append(integration_mapping)
 
 	def modify_responses_heading(self, heading):
 		""" Function to modify a heading title """
@@ -81,6 +95,12 @@ class ResponsesTransformer:
 		elif (any(a.original_title == heading for a in self.answer_heading_mappings)):
 			answer_heading_mapping = [a for a in self.answer_heading_mappings if a.original_title == heading][0]
 			question_header = answer_heading_mapping.modified_title
+			self.transformed_headers.append(question_header)
+			return question_header
+
+		elif (any(im.original_title == heading for im in self.integration_mappings)):
+			integration_mapping = [im for im in self.integration_mappings if im.original_title == heading][0]
+			question_header = integration_mapping.modified_title
 			self.transformed_headers.append(question_header)
 			return question_header
 
@@ -106,13 +126,22 @@ class ResponsesTransformer:
 		""" Function to modify an answer in the responses, mapping it to a letter, based off the column title """
 		if column_title == 'name':
 			return answer
+
 		elif column_title == 'stream':
 			if answer == 'Coding & STEAM':
 				return 'STEAM'
 			else:
 				return 'MATHS'
+		
+		elif (any(im.modified_title == column_title for im in self.integration_mappings)):
+			if answer == '':
+				return 'FALSE'
+			else:
+				return 'TRUE'
+
 		elif answer == 'I don\'t know':
 			return 'E'
+
 		else:
 
 			answer_match = self.answer_match_regex.match(answer)
@@ -155,7 +184,7 @@ class ResponsesTransformer:
 					modified_response[included_column] = response[included_column]
 				else:
 					answer_to_modify = response[included_column]
-					modified_answer = self.modify_responses_answer(included_column, response[included_column])
+					modified_answer = self.modify_responses_answer(included_column, answer_to_modify)
 					modified_response[included_column] = modified_answer
 
 			modified_responses.append(modified_response)
